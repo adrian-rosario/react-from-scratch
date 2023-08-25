@@ -47,5 +47,20 @@ table {
 	border-spacing: 0;
 }
 /* --------------------------------------------- */
-body { font: 1rem/100% Verdana, Arial, sans-serif;}
-.main {margin: 2rem auto; width: 800px;}
+body {font: 1rem/100% Verdana, Arial, sans-serif;}
+.main {
+	margin: 2rem auto;
+	width: 800px;
+	display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+li {margin-bottom: 1rem;}
+
+.breedsList, .imageDisplay {
+	display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
