@@ -47,7 +47,17 @@ table {
 	border-spacing: 0;
 }
 /* --------------------------------------------- */
-body {font: 1rem/100% Verdana, Arial, sans-serif;}
+body {
+	font: 1rem/100% Verdana, Arial, sans-serif;
+	background-color: darkslategray;
+	color:darkorange;
+}
+
+.sorry {
+	margin:0 auto; 
+	text-align: center;
+}
+
 .main {
 	margin: 2rem auto;
 	width: 800px;
@@ -63,4 +73,20 @@ li {margin-bottom: 1rem;}
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
+}
+
+.breedsList button {
+	background-color: darkolivegreen;
+	color: yellow;
+	padding: .5rem;
+	width: 200px;
+	border: 1px solid #000;
+	border-radius: 5px;
+	letter-spacing: .15rem;
+}
+
+.pooch {
+	border-radius: 10px;
+	max-width: 400px;
+	box-shadow: 8px 8px 8px 8px rgba(0, 0, 0, 0.2);
 }

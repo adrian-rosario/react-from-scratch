@@ -1,6 +1,8 @@
 import React, {useEffect,useState} from 'react';
-import './styles.css';
 import defaultImage from './images/js-logo-xs.png'
+import sorry from './images/technical-difficulties.jpg'
+import Layout from './layout';
+import './styles.css';
 
 export default function App() {
     const [data, setData] = useState(null);
@@ -12,7 +14,6 @@ export default function App() {
             const newData = await response.json();
             setData(newData.message);
         };
-
         fetchData();
     }, [])
 
@@ -22,36 +23,44 @@ export default function App() {
       const imageQuery = async() => {
         const response = await fetch(imagesUrl + breed + '/images/random');
         const newData = await response.json();
-        setImageSource( newData.message);
+        setImageSource(newData.message);
       }
       imageQuery();
     }
 
     if (data) {
         const results = Object.keys(data);
-        // console.log('data', data);
-        // console.log(results.length);
-
+        console.log('data', data);
+        console.log(results.length);
         return (
-          <div className='main'>
-            <ul className='breedsList'>
-          {results.map(function(dogName, index){
-             return (
-              <li key={index}>
-                <button onClick={ () => updateImage(dogName)}>
-                {dogName.charAt(0).toUpperCase()}{dogName.slice(1) /* capitalizing 1st char */}
-                </button>
-              </li>)
-           })}
-           </ul>
-            <div className='imageDisplay'>
-              <img src={defaultImage} style={{ display: !imageSource ? 'block' : 'none' }} />
-              <img src={imageSource} alt='pooch image' style={{ display: imageSource ? 'block' : 'none' }} />
-            </div>
-          </div>
-        )
+          <Layout>
 
+            <div className='main'>
+
+              <ul className='breedsList'>
+                {results.map(function(dogName, index){
+                return (
+                  <li key={index}>
+                    <button onClick={() => updateImage(dogName)}>
+                    {dogName.charAt(0).toUpperCase()}{dogName.slice(1)}
+                    </button>
+                  </li>)
+                })}
+              </ul>
+
+              <div className='imageDisplay'>
+                <img src={defaultImage} style={{ display: !imageSource ? 'block' : 'none' }} />
+                <img src={imageSource} alt='pooch image' style={{ display: imageSource ? 'block' : 'none' }} className='pooch' />
+              </div>
+            </div>
+            
+          </Layout>
+        )
     } else {
-        return null;
+        return (
+            <div className='sorry'>
+              <img src={sorry} alt="Sorry! We are experiencing techincal difficilties. Please stand by..." />
+            </div>
+        );
     }
 }
