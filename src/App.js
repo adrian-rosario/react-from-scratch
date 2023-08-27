@@ -36,21 +36,22 @@ export default function App() {
           <Layout>
 
             <div className='main'>
+              <div className='listDisplay'>
+                <ul className='breedsList'>
+                  {results.map(function(dogName, index){
+                  return (
+                    <li key={index}>
+                      <button onClick={() => updateImage(dogName)}>
+                      {dogName.charAt(0).toUpperCase()}{dogName.slice(1)}
+                      </button>
+                    </li>)
+                  })}
+                </ul>
 
-              <ul className='breedsList'>
-                {results.map(function(dogName, index){
-                return (
-                  <li key={index}>
-                    <button onClick={() => updateImage(dogName)}>
-                    {dogName.charAt(0).toUpperCase()}{dogName.slice(1)}
-                    </button>
-                  </li>)
-                })}
-              </ul>
-
-              <div className='imageDisplay'>
-                <img src={defaultImage} style={{ display: !imageSource ? 'block' : 'none' }} />
-                <img src={imageSource} alt='pooch image' style={{ display: imageSource ? 'block' : 'none' }} className='pooch' />
+                <div className='imageDisplay'>
+                  <img src={defaultImage} style={{ display: !imageSource ? 'block' : 'none' }} />
+                  <img src={imageSource} alt='pooch image' style={{ display: imageSource ? 'block' : 'none' }} className='pooch' />
+                </div>
               </div>
             </div>
             
