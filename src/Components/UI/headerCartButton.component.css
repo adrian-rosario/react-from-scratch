@@ -1,0 +1,31 @@
+.headerCartButton {
+  line-height: 1rem;
+  border-radius: 22px;
+  height: 44px;
+  float: right;
+  margin-top: 12px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  float: left;
+}
+
+.text {
+  line-height: 1.6rem;
+  margin: 0 .25rem;
+}
+
+.basketAmount {
+  border-radius: 10px;
+  padding: 4px;
+  background-color: #333;
+  color: #fff;
+}
+
+/* img {
+  max-width: 740px;
+  display: block;
+  margin: 0 auto;
+} */

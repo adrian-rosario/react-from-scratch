@@ -1,0 +1,12 @@
+header {
+  background-color: #550000;
+  height: 64px;
+  padding: 6px 6px;
+  border-bottom: 1px solid #000;
+}
+
+h1 {
+  color: #fff;
+  float: left;
+  padding-top: 1.5rem;
+}
