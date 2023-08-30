@@ -1,8 +1,8 @@
 import { Fragment } from "react";
 import './header.component.css';
-import HeaderCartButton from "../HeaderCartButton";
+import HeaderCartButton from "./HeaderCartButton";
 
-export default function Header(){
+export default function Header(props){
   return(
     <Fragment>
       <header>
@@ -10,7 +10,7 @@ export default function Header(){
           Shopping Cart Exercise
         </h1>
 
-        <HeaderCartButton />
+        <HeaderCartButton onClick={props.onShowCart} />
       </header>
     </Fragment>
   )

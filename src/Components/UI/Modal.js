@@ -1,9 +1,9 @@
 import { Fragment } from "react"
 import ReactDOM from 'react-dom'
 
-function Backdrop(){
+function Backdrop(props){
   return(
-    <div className="modalBackdrop"></div>
+    <div className="modalBackdrop" onClick={props.onClose}></div>
   )
 }
 
@@ -19,7 +19,7 @@ export default function Modal(props){
 
   return(
     <Fragment>
-      {ReactDOM.createPortal(<Backdrop />, portalElement)}
+      {ReactDOM.createPortal(<Backdrop onClose={props.onClose} />, portalElement)}
       {ReactDOM.createPortal(<ModalOverlay>{props.children}</ModalOverlay>, portalElement)}
     </Fragment>
   )

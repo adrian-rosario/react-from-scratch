@@ -1,6 +1,6 @@
 import Modal from "./Modal";
 
-export default function Cart(){
+export default function Cart(props){
 
   const cartItem = <ul>
     {[
@@ -17,12 +17,12 @@ export default function Cart(){
   </ul>
 
   return(
-    <Modal>
+    <Modal onClose={props.onClose}>
       {cartItem}
       <br/>
         actions, close/order
       <div>
-        <button>Close</button>
+        <button onClick={props.onClose}>Close</button>
         <button>Order</button>
       </div>
     </Modal>
