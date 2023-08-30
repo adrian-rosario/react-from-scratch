@@ -1,5 +1,5 @@
 
-export default function Iput(props){
+export default function Input(props){
 
   return(
     <div>

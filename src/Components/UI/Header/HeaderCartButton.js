@@ -1,4 +1,3 @@
-import { Fragment } from 'react'
 import cart from '../../../images/cart.svg';
 import './headerCartButton.component.css'
 
