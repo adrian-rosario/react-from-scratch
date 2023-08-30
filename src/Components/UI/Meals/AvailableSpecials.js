@@ -1,5 +1,5 @@
 import { mockData } from "./mock-meals";
-import Card from "../Card";
+import Card from "../Card/Card";
 import MealItem from "./MealItem";
 
 export default function AvailableSpecials(){

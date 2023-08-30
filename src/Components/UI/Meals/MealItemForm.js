@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import Input from "./Input"
+import Input from "../Input"
 
 export default function MealItemForm(props){
 

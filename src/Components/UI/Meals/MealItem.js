@@ -1,5 +1,5 @@
 import './mealItem.component.css';
-import MealItemForm from '../MealItemForm';
+import MealItemForm from './MealItemForm';
 import { useContext } from 'react';
 import { CartContext } from '../../../Store/cart-context';
 

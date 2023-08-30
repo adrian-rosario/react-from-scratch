@@ -2,7 +2,7 @@ import './styles.css';
 import { /*Fragment,*/ useState } from 'react';
 import Header from './Components/UI/Header/Header';
 import Meals from './Components/UI/Meals/Meals';
-import Cart from './Components/UI/Cart';
+import Cart from './Components/UI/Cart/Cart';
 import CartProvider from './Store/cart-provider';
 
 export default function App() {
