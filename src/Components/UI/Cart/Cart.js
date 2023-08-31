@@ -22,6 +22,10 @@ export default function Cart(props){
     cartContext.addItem({...item, amount: 1})
   }
 
+  function emptyCart(){
+      cartContext.clearItems();
+  }
+
   const cartItems = (
     <ul className={classes.cartItems}>
       {cartContext.items.map((item, key) => {
@@ -56,8 +60,8 @@ export default function Cart(props){
 
       <div>
         <button onClick={props.onClose}>Close</button>
-        {hasItems && <button>Order</button>}        
-        <button>Empty Cart</button>
+        {hasItems && <button>Order</button>}
+        <button onClick={emptyCart}>Empty Cart</button>             
       </div>
     </Modal>
   )
