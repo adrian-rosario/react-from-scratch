@@ -5,3 +5,8 @@
 .actions{}
 
 .summary{}
+
+.cartItems {
+  max-height: 20rem;
+  overflow-x: scroll;
+}

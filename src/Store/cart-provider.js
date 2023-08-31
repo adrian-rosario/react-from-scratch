@@ -7,17 +7,65 @@ const defaultCartState = {
 };
 
 function cartReducer(state, action){
+
+  let updatedItems;
+  
   if(action.type === 'ADD'){
-    const updatedItems = state.items.concat(action.item);
-    const updatedTotalAmount = state.totalAmount +
-    action.item.price *
-    action.item.amount;
+    updatedItems = state.items.concat(action.item);
+    const updatedTotalAmount = 
+      state.totalAmount + action.item.price *
+      action.item.amount;
     
+    // is item part of the cart already
+    const existingItemIndex = state.items.findIndex(
+      item => {
+        return item.id === action.item.id;
+      }
+    );
+    // if it exists, we want that index
+    const existingCartItem = state.items[existingItemIndex];
+    // only update the amount for exists/duplicate entry
+    if (existingCartItem){
+      const updatedItem = {
+        ...existingCartItem,
+        amount: existingCartItem.amount + action.item.amount
+      }
+      updatedItems = [...state.items];
+      updatedItems[existingItemIndex] = updatedItem;
+    } else {
+      // first time added to array 
+      updatedItems = state.items.concat(action.item);
+    }
+
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount
     }
   }
+
+  if (action.type === 'REMOVE') {
+    const existingCartItemIndex = state.items.findIndex(
+      (item) => item.id === action.id
+    );
+
+    const existingItem = state.items[existingCartItemIndex];
+    const updatedTotalAmount = state.totalAmount - existingItem.price;
+
+    let updatedItems;
+    if (existingItem.amount === 1) {
+      updatedItems = state.items.filter(item => item.id !== action.id);
+    } else {
+      const updatedItem = {...existingItem, amount: existingItem.amount - 1};
+      updatedItems = [...state.items];
+      updatedItems[existingCartItemIndex] = updatedItem;
+    }
+
+    return {
+      items: updatedItems,
+      totalAmount: updatedTotalAmount
+    };
+  }
+
   return defaultCartState;
 }
 
